@@ -7,7 +7,6 @@ package net.ccbluex.liquidbounce.injection.forge.mixins.block;
 
 import net.ccbluex.liquidbounce.LiquidBounce;
 import net.ccbluex.liquidbounce.event.BlockBBEvent;
-import net.ccbluex.liquidbounce.features.module.modules.render.XRay;
 import net.ccbluex.liquidbounce.features.module.modules.world.NoSlowBreak;
 import net.ccbluex.liquidbounce.injection.backend.AxisAlignedBBImplKt;
 import net.ccbluex.liquidbounce.injection.backend.BlockImplKt;
@@ -72,25 +71,25 @@ public abstract class MixinBlock {
             list.add(axisalignedbb);
     }
 
-    @Inject(method = "shouldSideBeRendered", at = @At("HEAD"), cancellable = true)
-    private void shouldSideBeRendered(CallbackInfoReturnable<Boolean> callbackInfoReturnable) {
-        final XRay xray = (XRay) LiquidBounce.moduleManager.getModule(XRay.class);
-
-        if (Objects.requireNonNull(xray).getState())
-            //noinspection SuspiciousMethodCalls
-            callbackInfoReturnable.setReturnValue(xray.getXrayBlocks().contains(this));
-    }
+//    @Inject(method = "shouldSideBeRendered", at = @At("HEAD"), cancellable = true)
+//    private void shouldSideBeRendered(CallbackInfoReturnable<Boolean> callbackInfoReturnable) {
+//        final XRay xray = (XRay) LiquidBounce.moduleManager.getModule(XRay.class);
+//
+//        if (Objects.requireNonNull(xray).getState())
+//            //noinspection SuspiciousMethodCalls
+//            callbackInfoReturnable.setReturnValue(xray.getXrayBlocks().contains(this));
+//    }
 
     @Inject(method = "isCollidable", at = @At("HEAD"), cancellable = true)
     private void isCollidable(CallbackInfoReturnable<Boolean> callbackInfoReturnable) {
         callbackInfoReturnable.setReturnValue(true);
     }
 
-    @Inject(method = "getAmbientOcclusionLightValue", at = @At("HEAD"), cancellable = true)
-    private void getAmbientOcclusionLightValue(final CallbackInfoReturnable<Float> floatCallbackInfoReturnable) {
-        if (Objects.requireNonNull(LiquidBounce.moduleManager.getModule(XRay.class)).getState())
-            floatCallbackInfoReturnable.setReturnValue(1F);
-    }
+//    @Inject(method = "getAmbientOcclusionLightValue", at = @At("HEAD"), cancellable = true)
+//    private void getAmbientOcclusionLightValue(final CallbackInfoReturnable<Float> floatCallbackInfoReturnable) {
+//        if (Objects.requireNonNull(LiquidBounce.moduleManager.getModule(XRay.class)).getState())
+//            floatCallbackInfoReturnable.setReturnValue(1F);
+//    }
 
     @Inject(method = "getPlayerRelativeBlockHardness", at = @At("RETURN"), cancellable = true)
     public void modifyBreakSpeed(EntityPlayer playerIn, World worldIn, BlockPos pos, final CallbackInfoReturnable<Float> callbackInfo) {

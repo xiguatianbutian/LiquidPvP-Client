@@ -6,7 +6,6 @@
 package net.ccbluex.liquidbounce.injection.forge.mixins.world;
 
 import net.ccbluex.liquidbounce.LiquidBounce;
-import net.ccbluex.liquidbounce.features.module.modules.render.ProphuntESP;
 import net.ccbluex.liquidbounce.injection.backend.ChunkImplKt;
 import net.ccbluex.liquidbounce.injection.backend.utils.BackendExtentionsKt;
 import net.ccbluex.liquidbounce.utils.render.MiniMapRegister;
@@ -33,19 +32,19 @@ public class MixinChunk {
     @Final
     public int zPosition;
 
-    @Inject(method = "setBlockState", at = @At("HEAD"))
-    private void setProphuntBlock(BlockPos pos, IBlockState state, final CallbackInfoReturnable callbackInfo) {
-        //noinspection ConstantConditions
-        MiniMapRegister.INSTANCE.updateChunk(ChunkImplKt.wrap((Chunk) ((Object) this)));
-
-        final ProphuntESP prophuntESP = (ProphuntESP) LiquidBounce.moduleManager.getModule(ProphuntESP.class);
-
-        if (Objects.requireNonNull(prophuntESP).getState()) {
-            synchronized (prophuntESP.getBlocks()) {
-                prophuntESP.getBlocks().put(BackendExtentionsKt.wrap(pos), System.currentTimeMillis());
-            }
-        }
-    }
+//    @Inject(method = "setBlockState", at = @At("HEAD"))
+//    private void setProphuntBlock(BlockPos pos, IBlockState state, final CallbackInfoReturnable callbackInfo) {
+//        //noinspection ConstantConditions
+//        MiniMapRegister.INSTANCE.updateChunk(ChunkImplKt.wrap((Chunk) ((Object) this)));
+//
+//        final ProphuntESP prophuntESP = (ProphuntESP) LiquidBounce.moduleManager.getModule(ProphuntESP.class);
+//
+//        if (Objects.requireNonNull(prophuntESP).getState()) {
+//            synchronized (prophuntESP.getBlocks()) {
+//                prophuntESP.getBlocks().put(BackendExtentionsKt.wrap(pos), System.currentTimeMillis());
+//            }
+//        }
+//    }
 
     @Inject(method = "onChunkUnload", at = @At("HEAD"))
     private void injectFillChunk(CallbackInfo ci) {

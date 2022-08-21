@@ -124,7 +124,7 @@ object LiquidBounce {
 
         // Load configs
         fileManager.loadConfigs(fileManager.modulesConfig, fileManager.valuesConfig, fileManager.accountsConfig,
-                fileManager.friendsConfig, fileManager.xrayConfig, fileManager.shortcutsConfig)
+                fileManager.friendsConfig, fileManager.shortcutsConfig)
 
         // ClickGUI
         clickGui = ClickGui()
