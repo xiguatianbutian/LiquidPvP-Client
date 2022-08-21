@@ -7,9 +7,6 @@ package net.ccbluex.liquidbounce.injection.forge.mixins.entity;
 
 import net.ccbluex.liquidbounce.LiquidBounce;
 import net.ccbluex.liquidbounce.event.JumpEvent;
-import net.ccbluex.liquidbounce.features.module.modules.movement.AirJump;
-import net.ccbluex.liquidbounce.features.module.modules.movement.LiquidWalk;
-import net.ccbluex.liquidbounce.features.module.modules.movement.NoJumpDelay;
 import net.ccbluex.liquidbounce.features.module.modules.render.AntiBlind;
 import net.minecraft.block.Block;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -87,26 +84,26 @@ public abstract class MixinEntityLivingBase extends MixinEntity {
         this.isAirBorne = true;
     }
 
-    @Inject(method = "onLivingUpdate", at = @At("HEAD"))
-    private void headLiving(CallbackInfo callbackInfo) {
-        if (Objects.requireNonNull(LiquidBounce.moduleManager.getModule(NoJumpDelay.class)).getState())
-            jumpTicks = 0;
-    }
+//    @Inject(method = "onLivingUpdate", at = @At("HEAD"))
+//    private void headLiving(CallbackInfo callbackInfo) {
+//        if (Objects.requireNonNull(LiquidBounce.moduleManager.getModule(NoJumpDelay.class)).getState())
+//            jumpTicks = 0;
+//    }
 
-    @Inject(method = "onLivingUpdate", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/EntityLivingBase;isJumping:Z", ordinal = 1))
-    private void onJumpSection(CallbackInfo callbackInfo) {
-        if (Objects.requireNonNull(LiquidBounce.moduleManager.getModule(AirJump.class)).getState() && isJumping && this.jumpTicks == 0) {
-            this.jump();
-            this.jumpTicks = 10;
-        }
-
-        final LiquidWalk liquidWalk = (LiquidWalk) LiquidBounce.moduleManager.getModule(LiquidWalk.class);
-
-        if (Objects.requireNonNull(liquidWalk).getState() && !isJumping && !isSneaking() && isInWater() &&
-                liquidWalk.getModeValue().get().equalsIgnoreCase("Swim")) {
-            this.updateAITick();
-        }
-    }
+//    @Inject(method = "onLivingUpdate", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/EntityLivingBase;isJumping:Z", ordinal = 1))
+//    private void onJumpSection(CallbackInfo callbackInfo) {
+//        if (Objects.requireNonNull(LiquidBounce.moduleManager.getModule(AirJump.class)).getState() && isJumping && this.jumpTicks == 0) {
+//            this.jump();
+//            this.jumpTicks = 10;
+//        }
+//
+//        final LiquidWalk liquidWalk = (LiquidWalk) LiquidBounce.moduleManager.getModule(LiquidWalk.class);
+//
+//        if (Objects.requireNonNull(liquidWalk).getState() && !isJumping && !isSneaking() && isInWater() &&
+//                liquidWalk.getModeValue().get().equalsIgnoreCase("Swim")) {
+//            this.updateAITick();
+//        }
+//    }
 
     @Inject(method = "getLook", at = @At("HEAD"), cancellable = true)
     private void getLook(CallbackInfoReturnable<Vec3> callbackInfoReturnable) {
