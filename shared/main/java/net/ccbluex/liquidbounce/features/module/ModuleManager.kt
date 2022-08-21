@@ -44,10 +44,6 @@ class ModuleManager : Listenable {
                 InventoryMove::class.java,
                 NoSlow::class.java,
                 Sprint::class.java,
-                Scaffold::class.java,
-                CivBreak::class.java,
-                Tower::class.java,
-                ESP::class.java,
                 Fullbright::class.java,
                 AutoTool::class.java,
                 Spammer::class.java,
@@ -58,11 +54,9 @@ class ModuleManager : Listenable {
                 AntiHunger::class.java,
                 FastBow::class.java,
                 MultiActions::class.java,
-                AirJump::class.java,
                 NoBob::class.java,
                 BlockOverlay::class.java,
                 NoFriends::class.java,
-                Chams::class.java,
                 Phase::class.java,
                 NoFOV::class.java,
                 SwingAnimation::class.java,
@@ -77,9 +71,7 @@ class ModuleManager : Listenable {
                 Liquids::class.java,
                 Rotations::class.java,
                 HUD::class.java,
-                TNTESP::class.java,
                 ComponentOnHover::class.java,
-                NoSlowBreak::class.java,
                 PortalMenu::class.java
         )
 

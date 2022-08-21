@@ -7,7 +7,6 @@ package net.ccbluex.liquidbounce.injection.forge.mixins.block;
 
 import net.ccbluex.liquidbounce.LiquidBounce;
 import net.ccbluex.liquidbounce.event.BlockBBEvent;
-import net.ccbluex.liquidbounce.features.module.modules.world.NoSlowBreak;
 import net.ccbluex.liquidbounce.injection.backend.AxisAlignedBBImplKt;
 import net.ccbluex.liquidbounce.injection.backend.BlockImplKt;
 import net.ccbluex.liquidbounce.injection.backend.utils.BackendExtentionsKt;
