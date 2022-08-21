@@ -9,12 +9,10 @@ import net.ccbluex.liquidbounce.LiquidBounce
 import net.ccbluex.liquidbounce.event.EventTarget
 import net.ccbluex.liquidbounce.event.KeyEvent
 import net.ccbluex.liquidbounce.event.Listenable
-import net.ccbluex.liquidbounce.features.module.modules.`fun`.Derp
 import net.ccbluex.liquidbounce.features.module.modules.combat.*
 import net.ccbluex.liquidbounce.features.module.modules.exploit.*
 import net.ccbluex.liquidbounce.features.module.modules.misc.*
 import net.ccbluex.liquidbounce.features.module.modules.movement.*
-import net.ccbluex.liquidbounce.features.module.modules.player.*
 import net.ccbluex.liquidbounce.features.module.modules.render.*
 import net.ccbluex.liquidbounce.features.module.modules.world.*
 import net.ccbluex.liquidbounce.utils.ClientUtils
@@ -37,30 +35,22 @@ class ModuleManager : Listenable {
         ClientUtils.getLogger().info("[ModuleManager] Loading modules...")
 
         registerModules(
-                AutoArmor::class.java,
                 ClickGUI::class.java,
-                NoSlow::class.java,
                 Sprint::class.java,
                 Fullbright::class.java,
-                Blink::class.java,
                 NameProtect::class.java,
                 NoHurtCam::class.java,
                 NoBob::class.java,
                 BlockOverlay::class.java,
-                Phase::class.java,
                 NoFOV::class.java,
                 SwingAnimation::class.java,
-                Derp::class.java,
                 TrueSight::class.java,
                 LiquidChat::class.java,
                 AntiBlind::class.java,
                 NoSwing::class.java,
                 Breadcrumbs::class.java,
-                PotionSaver::class.java,
-                Liquids::class.java,
                 Rotations::class.java,
-                HUD::class.java,
-                PortalMenu::class.java
+                HUD::class.java
         )
 
         registerModule(NoScoreboard)
