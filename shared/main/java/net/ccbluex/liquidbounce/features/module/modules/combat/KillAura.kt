@@ -523,11 +523,10 @@ class KillAura : Module() {
         }
 
         // Extra critical effects
-        val criticals = LiquidBounce.moduleManager[Criticals::class.java] as Criticals
 
         for (i in 0..2) {
             // Critical Effect
-            if (thePlayer.fallDistance > 0F && !thePlayer.onGround && !thePlayer.isOnLadder && !thePlayer.isInWater && !thePlayer.isPotionActive(classProvider.getPotionEnum(PotionType.BLINDNESS)) && thePlayer.ridingEntity == null || criticals.state && criticals.msTimer.hasTimePassed(criticals.delayValue.get().toLong()) && !thePlayer.isInWater && !thePlayer.isInLava && !thePlayer.isInWeb)
+            if (thePlayer.fallDistance > 0F && !thePlayer.onGround && !thePlayer.isOnLadder && !thePlayer.isInWater && !thePlayer.isPotionActive(classProvider.getPotionEnum(PotionType.BLINDNESS)) && thePlayer.ridingEntity == null  && !thePlayer.isInWater && !thePlayer.isInLava && !thePlayer.isInWeb)
                 thePlayer.onCriticalHit(target!!)
 
             // Enchant Effect
