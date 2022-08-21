@@ -8,7 +8,6 @@ package net.ccbluex.liquidbounce.injection.forge.mixins.entity;
 import net.ccbluex.liquidbounce.LiquidBounce;
 import net.ccbluex.liquidbounce.event.AttackEvent;
 import net.ccbluex.liquidbounce.event.ClickWindowEvent;
-import net.ccbluex.liquidbounce.features.module.modules.exploit.AbortBreaking;
 import net.ccbluex.liquidbounce.injection.backend.EntityImplKt;
 import net.minecraft.client.multiplayer.PlayerControllerMP;
 import net.minecraft.entity.Entity;
@@ -31,11 +30,11 @@ public class MixinPlayerControllerMP {
         LiquidBounce.eventManager.callEvent(new AttackEvent(EntityImplKt.wrap(targetEntity)));
     }
 
-    @Inject(method = "getIsHittingBlock", at = @At("HEAD"), cancellable = true)
-    private void getIsHittingBlock(CallbackInfoReturnable<Boolean> callbackInfoReturnable) {
-        if (LiquidBounce.moduleManager.getModule(AbortBreaking.class).getState())
-            callbackInfoReturnable.setReturnValue(false);
-    }
+//    @Inject(method = "getIsHittingBlock", at = @At("HEAD"), cancellable = true)
+//    private void getIsHittingBlock(CallbackInfoReturnable<Boolean> callbackInfoReturnable) {
+//        if (LiquidBounce.moduleManager.getModule(AbortBreaking.class).getState())
+//            callbackInfoReturnable.setReturnValue(false);
+//    }
 
     @Inject(method = "windowClick", at = @At("HEAD"), cancellable = true)
     private void windowClick(int windowId, int slotId, int mouseButtonClicked, int mode, EntityPlayer playerIn, CallbackInfoReturnable<ItemStack> callbackInfo) {
