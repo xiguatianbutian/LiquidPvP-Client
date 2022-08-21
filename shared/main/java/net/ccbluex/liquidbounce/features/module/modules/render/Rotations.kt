@@ -63,7 +63,6 @@ class Rotations : Module() {
         return getState(Scaffold::class.java) || getState(Tower::class.java) ||
                 (getState(KillAura::class.java) && killAura.target != null) ||
                 getState(Derp::class.java) || getState(BowAimbot::class.java) ||
-                getState(Fucker::class.java) || getState(CivBreak::class.java) || getState(Nuker::class.java) ||
                 getState(ChestAura::class.java)
     }
 }

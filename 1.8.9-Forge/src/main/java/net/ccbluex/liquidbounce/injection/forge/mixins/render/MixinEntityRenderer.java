@@ -11,7 +11,6 @@ import net.ccbluex.liquidbounce.event.Render3DEvent;
 import net.ccbluex.liquidbounce.features.module.modules.player.Reach;
 import net.ccbluex.liquidbounce.features.module.modules.render.CameraClip;
 import net.ccbluex.liquidbounce.features.module.modules.render.NoHurtCam;
-import net.ccbluex.liquidbounce.features.module.modules.render.Tracers;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -141,15 +140,16 @@ public abstract class MixinEntityRenderer {
         }
     }
 
-    @Inject(method = "setupCameraTransform", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/EntityRenderer;setupViewBobbing(F)V", shift = At.Shift.BEFORE))
-    private void setupCameraViewBobbingBefore(final CallbackInfo callbackInfo) {
-        if (LiquidBounce.moduleManager.getModule(Tracers.class).getState()) GL11.glPushMatrix();
-    }
+//    @Inject(method = "setupCameraTransform", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/EntityRenderer;setupViewBobbing(F)V", shift = At.Shift.BEFORE))
+//    private void setupCameraViewBobbingBefore(final CallbackInfo callbackInfo) {
+//        if (LiquidBounce.moduleManager.getModule(Tracers.class).getState()) GL11.glPushMatrix();
+//    }
 
-    @Inject(method = "setupCameraTransform", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/EntityRenderer;setupViewBobbing(F)V", shift = At.Shift.AFTER))
-    private void setupCameraViewBobbingAfter(final CallbackInfo callbackInfo) {
-        if (LiquidBounce.moduleManager.getModule(Tracers.class).getState()) GL11.glPopMatrix();
-    }
+//    @Inject(method = "setupCameraTransform", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/EntityRenderer;setupViewBobbing(F)V", shift = At.Shift.AFTER))
+//    private void setupCameraViewBobbingAfter(final CallbackInfo callbackInfo) {
+//        //TODO FUCK
+//        //        if (LiquidBounce.moduleManager.getModule(Tracers.class).getState()) GL11.glPopMatrix();
+//    }
 
     /**
      * @author

@@ -51,12 +51,8 @@ class ModuleManager : Listenable {
                 FastBreak::class.java,
                 FastPlace::class.java,
                 ESP::class.java,
-                Tracers::class.java,
-                NameTags::class.java,
                 Fullbright::class.java,
-                ItemESP::class.java,
                 StorageESP::class.java,
-                Nuker::class.java,
                 FastClimb::class.java,
                 AutoTool::class.java,
                 Spammer::class.java,
@@ -102,7 +98,6 @@ class ModuleManager : Listenable {
         )
 
         registerModule(NoScoreboard)
-        registerModule(Fucker)
         registerModule(ChestAura)
         registerModule(AntiBot)
 
