@@ -7,7 +7,6 @@ package net.ccbluex.liquidbounce.injection.forge.mixins.client;
 
 import net.ccbluex.liquidbounce.LiquidBounce;
 import net.ccbluex.liquidbounce.event.*;
-import net.ccbluex.liquidbounce.features.module.modules.exploit.MultiActions;
 import net.ccbluex.liquidbounce.injection.backend.EnumFacingImplKt;
 import net.ccbluex.liquidbounce.injection.backend.GuiScreenImplKt;
 import net.ccbluex.liquidbounce.injection.backend.WorldClientImplKt;
@@ -231,7 +230,7 @@ public abstract class MixinMinecraft {
         if(!leftClick)
             this.leftClickCounter = 0;
 
-        if (this.leftClickCounter <= 0 && (!this.thePlayer.isUsingItem() || LiquidBounce.moduleManager.getModule(MultiActions.class).getState())) {
+        if (this.leftClickCounter <= 0 && !this.thePlayer.isUsingItem()) {
             if(leftClick && this.objectMouseOver != null && this.objectMouseOver.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK) {
                 BlockPos blockPos = this.objectMouseOver.getBlockPos();
 

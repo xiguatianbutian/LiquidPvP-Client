@@ -5,9 +5,7 @@
  */
 package net.ccbluex.liquidbounce.features.module.modules.movement
 
-import net.ccbluex.liquidbounce.LiquidBounce
 import net.ccbluex.liquidbounce.api.enums.EnumFacingType
-import net.ccbluex.liquidbounce.api.enums.WEnumHand
 import net.ccbluex.liquidbounce.api.minecraft.item.IItem
 import net.ccbluex.liquidbounce.api.minecraft.network.play.client.ICPacketPlayerDigging
 import net.ccbluex.liquidbounce.api.minecraft.util.WBlockPos
@@ -15,12 +13,8 @@ import net.ccbluex.liquidbounce.event.*
 import net.ccbluex.liquidbounce.features.module.Module
 import net.ccbluex.liquidbounce.features.module.ModuleCategory
 import net.ccbluex.liquidbounce.features.module.ModuleInfo
-import net.ccbluex.liquidbounce.features.module.modules.combat.KillAura
 import net.ccbluex.liquidbounce.injection.backend.Backend
-import net.ccbluex.liquidbounce.injection.backend.WrapperImpl
-import net.ccbluex.liquidbounce.injection.backend.unwrap
 import net.ccbluex.liquidbounce.utils.MovementUtils
-import net.ccbluex.liquidbounce.utils.createUseItemPacket
 import net.ccbluex.liquidbounce.value.BoolValue
 import net.ccbluex.liquidbounce.value.FloatValue
 
@@ -54,9 +48,6 @@ class NoSlow : Module() {
         if (!classProvider.isItemSword(heldItem.item) || !MovementUtils.isMoving)
             return
 
-        val aura = LiquidBounce.moduleManager[KillAura::class.java] as KillAura
-        if (!thePlayer.isBlocking && !aura.blockingStatus)
-            return
 
         if (this.packet.get() && Backend.MINECRAFT_VERSION_MINOR == 8) {
             when (event.eventState) {

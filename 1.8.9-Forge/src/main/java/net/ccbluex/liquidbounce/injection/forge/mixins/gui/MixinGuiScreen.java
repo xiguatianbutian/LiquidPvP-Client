@@ -6,7 +6,6 @@
 package net.ccbluex.liquidbounce.injection.forge.mixins.gui;
 
 import net.ccbluex.liquidbounce.LiquidBounce;
-import net.ccbluex.liquidbounce.features.module.modules.misc.ComponentOnHover;
 import net.ccbluex.liquidbounce.features.module.modules.render.HUD;
 import net.ccbluex.liquidbounce.injection.backend.ResourceLocationImplKt;
 import net.ccbluex.liquidbounce.ui.client.GuiBackground;
@@ -132,7 +131,7 @@ public abstract class MixinGuiScreen {
 
     @Inject(method = "handleComponentHover", at = @At("HEAD"))
     private void handleHoverOverComponent(IChatComponent component, int x, int y, final CallbackInfo callbackInfo) {
-        if (component == null || component.getChatStyle().getChatClickEvent() == null || !LiquidBounce.moduleManager.getModule(ComponentOnHover.class).getState())
+        if (component == null || component.getChatStyle().getChatClickEvent() == null )
             return;
 
         final ChatStyle chatStyle = component.getChatStyle();

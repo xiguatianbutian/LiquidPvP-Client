@@ -12,10 +12,6 @@ import net.ccbluex.liquidbounce.event.Render3DEvent
 import net.ccbluex.liquidbounce.features.module.Module
 import net.ccbluex.liquidbounce.features.module.ModuleCategory
 import net.ccbluex.liquidbounce.features.module.ModuleInfo
-import net.ccbluex.liquidbounce.features.module.modules.`fun`.Derp
-import net.ccbluex.liquidbounce.features.module.modules.combat.BowAimbot
-import net.ccbluex.liquidbounce.features.module.modules.combat.KillAura
-import net.ccbluex.liquidbounce.features.module.modules.world.*
 import net.ccbluex.liquidbounce.utils.RotationUtils
 import net.ccbluex.liquidbounce.value.BoolValue
 
@@ -36,7 +32,7 @@ class Rotations : Module() {
     fun onPacket(event: PacketEvent) {
         val thePlayer = mc.thePlayer
 
-        if (!bodyValue.get() || !shouldRotate() || thePlayer == null)
+        if (!bodyValue.get() || thePlayer == null)
             return
 
         val packet = event.packet
@@ -58,10 +54,4 @@ class Rotations : Module() {
 
     private fun getState(module: Class<*>) = LiquidBounce.moduleManager[module]!!.state
 
-    private fun shouldRotate(): Boolean {
-        val killAura = LiquidBounce.moduleManager.getModule(KillAura::class.java) as KillAura
-        return (getState(KillAura::class.java) && killAura.target != null) ||
-                getState(Derp::class.java) || getState(BowAimbot::class.java) ||
-                getState(ChestAura::class.java)
-    }
 }

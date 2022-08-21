@@ -15,7 +15,6 @@ import net.ccbluex.liquidbounce.event.EventTarget;
 import net.ccbluex.liquidbounce.event.Listenable;
 import net.ccbluex.liquidbounce.event.PacketEvent;
 import net.ccbluex.liquidbounce.event.TickEvent;
-import net.ccbluex.liquidbounce.features.module.modules.combat.FastBow;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
@@ -99,7 +98,7 @@ public final class RotationUtils extends MinecraftInstance implements Listenable
         final double posZ = target.getPosZ() + (predict ? (target.getPosZ() - target.getPrevPosZ()) * predictSize : 0) - (player.getPosZ() + (predict ? (player.getPosZ() - player.getPrevPosZ()) : 0));
         final double posSqrt = Math.sqrt(posX * posX + posZ * posZ);
 
-        float velocity = LiquidBounce.moduleManager.getModule(FastBow.class).getState() ? 1F : player.getItemInUseDuration() / 20F;
+        float velocity = player.getItemInUseDuration() / 20F;
         velocity = (velocity * velocity + velocity * 2) / 3;
 
         if (velocity > 1) velocity = 1;

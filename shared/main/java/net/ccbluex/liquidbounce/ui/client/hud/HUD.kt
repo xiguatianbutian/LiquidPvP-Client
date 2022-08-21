@@ -7,7 +7,6 @@ package net.ccbluex.liquidbounce.ui.client.hud
 
 import net.ccbluex.liquidbounce.ui.client.hud.element.Element
 import net.ccbluex.liquidbounce.ui.client.hud.element.elements.*
-import net.ccbluex.liquidbounce.ui.client.hud.element.elements.Target
 import net.ccbluex.liquidbounce.utils.ClientUtils
 import net.ccbluex.liquidbounce.utils.MinecraftInstance
 import org.lwjgl.opengl.GL11
@@ -31,7 +30,6 @@ open class HUD : MinecraftInstance() {
                 TabGUI::class.java,
                 Text::class.java,
                 ScoreboardElement::class.java,
-                Target::class.java,
                 SpeedGraph::class.java
         )
 

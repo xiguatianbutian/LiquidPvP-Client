@@ -38,25 +38,15 @@ class ModuleManager : Listenable {
 
         registerModules(
                 AutoArmor::class.java,
-                BowAimbot::class.java,
-                KillAura::class.java,
                 ClickGUI::class.java,
-                InventoryMove::class.java,
                 NoSlow::class.java,
                 Sprint::class.java,
                 Fullbright::class.java,
-                AutoTool::class.java,
-                Spammer::class.java,
                 Blink::class.java,
                 NameProtect::class.java,
                 NoHurtCam::class.java,
-                HitBox::class.java,
-                AntiHunger::class.java,
-                FastBow::class.java,
-                MultiActions::class.java,
                 NoBob::class.java,
                 BlockOverlay::class.java,
-                NoFriends::class.java,
                 Phase::class.java,
                 NoFOV::class.java,
                 SwingAnimation::class.java,
@@ -67,16 +57,13 @@ class ModuleManager : Listenable {
                 NoSwing::class.java,
                 Breadcrumbs::class.java,
                 PotionSaver::class.java,
-                NoPitchLimit::class.java,
                 Liquids::class.java,
                 Rotations::class.java,
                 HUD::class.java,
-                ComponentOnHover::class.java,
                 PortalMenu::class.java
         )
 
         registerModule(NoScoreboard)
-        registerModule(ChestAura)
         registerModule(AntiBot)
 
         ClientUtils.getLogger().info("[ModuleManager] Loaded ${modules.size} modules.")
